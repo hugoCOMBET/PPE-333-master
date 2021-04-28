@@ -21,10 +21,10 @@ namespace PPE3_SLAM_HUGO.viewModel
 
         private double creditautiliser;
 
+        public ObservableCollection<Clients> ListClient { get => listClient; set => listClient = value; }
+
         private ICommand retirerCommand;
         private ICommand ajouterCommand;
-
-        public ObservableCollection<Clients> ListClient { get => listClient; set => listClient = value; }
 
         public viewModelCredit(DAOclients thedaoClient)
         {
@@ -134,6 +134,7 @@ namespace PPE3_SLAM_HUGO.viewModel
         private void RetirerCommand()
         {
             selectedClient.Credit = selectedClient.Credit - creditautiliser;
+            vmDaoClients.Update(selectedClient);
             MessageBox.Show("Crédit retirés");
         }
         public ICommand RetirerClient

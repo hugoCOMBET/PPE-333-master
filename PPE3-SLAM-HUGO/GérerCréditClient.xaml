@@ -28,8 +28,8 @@
             <TextBox x:Name="txtbox_crédit" Text="{Binding Credit}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,20,10,30" Height="18"/>
             <Label Content="Crédits à ajouter&#xD;&#xA;ou supprimer :" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,7,0,7" Background="White" FontSize="14" Height="52" Width="121" Grid.ColumnSpan="2"/>
             <TextBox x:Name="txtbox_créditAAjouterouSupp" Text="{Binding CreditaUtiliser}" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,10,10,40" Height="18"/>
-            <Button x:Name="btn_ajoutCrédit" Content="Ajouter" Grid.Column="2" Command="{Binding AjouterCredit}" HorizontalAlignment="Left" Margin="10,24,0,0" Grid.Row="3" VerticalAlignment="Top" Width="130" Height="50"/>
-            <Button x:Name="btn_retirer" Content="Retirer" Grid.Column="2" Command="{Binding RetirerCredit}" HorizontalAlignment="Left" Margin="163,24,0,0" Grid.Row="3" VerticalAlignment="Top" Width="130" Height="50"/>
+            <Button x:Name="btn_ajoutCrédit" Content="Ajouter" Grid.Column="2" Command="{Binding AjouterCredit }" HorizontalAlignment="Left" Margin="10,24,0,0" Grid.Row="3" VerticalAlignment="Top" Width="130" Height="50" Background="#FF68FF00"/>
+            <Button x:Name="btn_retirer" Content="Retirer" Grid.Column="2" Command="{Binding RetirerCredit}" HorizontalAlignment="Left" Margin="163,24,0,0" Grid.Row="3" VerticalAlignment="Top" Width="130" Height="50" Background="Red"/>
         </Grid>
         <Button x:Name="btn_gérerClient" Content="Gérer un client" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Click="btn_gérerClient_Click" Background="#FFF1E1E1"/>
         <Button x:Name="btn_afficherTrans" Content="afficher les transactions" HorizontalAlignment="Left" Margin="140,0,0,0" VerticalAlignment="Top" Width="140" Click="btn_afficherTrans_Click" Background="#FFF1E1E1"/>
