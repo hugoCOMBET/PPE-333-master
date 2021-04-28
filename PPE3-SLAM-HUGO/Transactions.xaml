@@ -1,0 +1,32 @@
+﻿<Window x:Class="PPE3_SLAM_HUGO.FenetreTransactions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PPE3_SLAM_HUGO"
+        mc:Ignorable="d"
+        Title="Transactions" Height="450" Width="800">
+    <Grid x:Name="Transaction" Background="#FFE8E8E8">
+        <ListBox x:Name="lst_clients"  ItemsSource="{Binding ListClient}" SelectedItem="{Binding Selectedclient}" HorizontalAlignment="Left" Height="215" Margin="10,121,0,0" VerticalAlignment="Top" Width="250"/>
+        <Label x:Name="lbl_clients" Content="liste clients :" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,82,0,303" Background="White" FontSize="14" Height="34" Width="132" FontStyle="Italic" RenderTransformOrigin="0.332,1.345"/>
+        <Grid x:Name="displayClients" Margin="295,48,22,83" RenderTransformOrigin="0.523,0.493">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="31*"/>
+                <ColumnDefinition Width="119*"/>
+                <ColumnDefinition Width="300*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="19*"/>
+                <RowDefinition Height="125*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Client :&#xA;" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,6,0,248" Background="White" FontSize="14" Height="34" Width="148" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            <TextBox x:Name="txtbox_Client" Text="{Binding Nom}" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="9.722,12,10.278,8" Height="18"/>
+            <Label Content="Liste des transactions :" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10,0,212" Background="White" FontSize="14" Height="28" Width="148" Grid.ColumnSpan="2"/>
+            <Image x:Name="imageFromage" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="47,20,78.278,18" Height="0" Width="0" Grid.Column="1"/>
+            <ListBox x:Name="lst_transactions" Grid.Column="2"  ItemsSource="{Binding LaListTransaction}"   HorizontalAlignment="Left" Height="229" Margin="9.722,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="297"/>
+        </Grid>
+        <Button x:Name="btn_gérerClient" Content="Gérer un client" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Click="btn_gérerClient_Click" Background="#FFF1E1E1"/>
+        <Button x:Name="btn_GérerlesCrédits" Content="Gérer credit" HorizontalAlignment="Left" Margin="140,0,0,0" VerticalAlignment="Top" Width="140" Click="btn_GérerlesCrédits_Click" Background="#FFF1E1E1"/>
+
+    </Grid>
+</Window>

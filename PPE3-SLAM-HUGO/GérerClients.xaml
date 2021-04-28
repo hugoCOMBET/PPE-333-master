@@ -1,0 +1,62 @@
+﻿<Window x:Class="PPE3_SLAM_HUGO.GérerClients"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PPE3_SLAM_HUGO"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GérerClients" Height="450" Width="800">
+
+    <Grid x:Name="GererClient" Background="#FFE8E8E8">
+        <Label x:Name="lbl_listeClient" Content="Liste des clients :" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="322" FontStyle="Italic"/>
+        <ListBox x:Name="lst_clients" ItemsSource="{Binding ListClient}" SelectedItem="{Binding Selectedclient}" IsSynchronizedWithCurrentItem="True" HorizontalAlignment="Left" Height="288" Margin="10,121,0,0" VerticalAlignment="Top" Width="250" />
+        <Grid x:Name="displayClients" Margin="332,36,10,0" RenderTransformOrigin="0.523,0.493">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="31*"/>
+                <ColumnDefinition Width="119*"/>
+                <ColumnDefinition Width="300*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+
+            </Grid.RowDefinitions>
+            <Label Content="Nom &#xA;" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,14,0,6" Background="White" FontSize="14" Height="28" Width="130" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="txtbox_nom" Text="{Binding Nom}" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10.333,20,9.333,10" Height="18"/>
+            <Label Content="Prénom"  Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,14,0,6" Background="White" FontSize="14" Height="28" Width="130" Grid.ColumnSpan="2"/>
+            <Label Content="DateNaissance" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,14,0,6" Background="White" FontSize="14" Width="130" Height="30" Grid.ColumnSpan="2"/>
+            <DatePicker x:Name="Calendrier_DateNaiss" SelectedDate="{Binding DateNaissance}" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,13,10,11" Height="24"/>
+            <Label Content="Email" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,14,0,6" Background="White" FontSize="14" Width="130" Height="30" Grid.ColumnSpan="2"/>
+            <Image x:Name="imageClient" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="44,24,75,24" Height="0" Width="0" Grid.Column="1"/>
+            <Button x:Name="updateClient" Content="Mise à jour" Command="{Binding UpdateClient}" Grid.Row="7" Margin="150,2,40,7" Background="#FFF3EE88" Grid.Column="2"/>
+            <Button x:Name="AjouterClient" Content="Ajouter" Command="{Binding AjouterClient}" Grid.Row="7" Margin="9,2,0,7" Background="#FFC3EABD" RenderTransformOrigin="0.5,0.5" Grid.Column="1"/>
+            <Button x:Name="SupprimerClient" Content="Supprimer" Command="{Binding SupprimerClient}" Grid.Row="7" Margin="19,2,171,7" Background="#FFFF8F8F" Grid.Column="2"/>
+            <Label Content="Numéro Teléphone" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,14,0,6" Background="White" FontSize="14" Width="130" Height="30" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="txtbox_prenom" Text="{Binding Prenom}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,14,10,16" Height="18"/>
+            <TextBox x:Name="txtbox_mail" Text="{Binding Email}" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,13,10,17" Height="18"/>
+            <TextBox x:Name="txtbox_NumTel" Text="{Binding NumTel}" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,13,10,17" Height="18"/>
+            <Label Content="Adresse" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,14,0,6" Background="White" FontSize="14" Width="130" Height="30" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="txtbox_adresse" Text="{Binding Adresse}" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,13,10,17" Height="18"/>
+            <Label Content="Crédits" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,14,0,6" Background="White" FontSize="14" Width="130" Height="30" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="txtbox_credit" Text="{Binding Credit}" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,13,10,17" Height="18"/>
+        </Grid>
+        <Label x:Name="lbl_infoClient" Content="Infos Client :" HorizontalAlignment="Left" Margin="337,10,0,0" VerticalAlignment="Top" Width="322" FontStyle="Italic"/>
+        <Button x:Name="btn_gérerCreditClient" Content="Gérer crédit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Click="btn_gérerClient_Click" Background="#FFF1E1E1"/>
+        <Button x:Name="btn_afficherTrans" Content="afficher les transactions" HorizontalAlignment="Left" Margin="140,0,0,0" VerticalAlignment="Top" Width="140" Click="btn_afficherTrans_Click" Background="#FFF1E1E1" Foreground="Black">
+            <Button.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.BorderBrush>
+        </Button>
+    </Grid>
+
+</Window>

@@ -1,0 +1,34 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PPE3_SLAM"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="PPE3_SLAM.gererCreditClient"
+        mc:Ignorable="d"
+        Title="Gérer Crédit Client" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="96*"/>
+            <ColumnDefinition Width="301*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="list_boxClient" HorizontalAlignment="Left" Height="113" Margin="157,60,0,0" VerticalAlignment="Top" Width="90" Grid.ColumnSpan="2">
+            <System:String>client 1</System:String>
+            <System:String>client 2</System:String>
+            <System:String>client 3</System:String>
+            <System:String>client 4</System:String>
+            <System:String>client 5</System:String>
+            <System:String>client 6</System:String>
+            <System:String>client 7</System:String>
+        </ListBox>
+        <Label x:Name="lbl_listeclient" Content="Vos clients :" HorizontalAlignment="Left" Margin="64,51,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_selection" Content="Valider" HorizontalAlignment="Left" Margin="157,195,0,0" VerticalAlignment="Top" Width="75" Click="Btn_selection_Click" Grid.ColumnSpan="2"/>
+        <Rectangle x:Name="rect_infoClient" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="113" Margin="233.177,60,0,0" Stroke="Black" VerticalAlignment="Top" Width="210" Grid.Column="1"/>
+        <Label x:Name="lbl_infosClient" Content="infos client :" HorizontalAlignment="Left" Margin="156.177,59,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="textblock_infoClient" HorizontalAlignment="Left" Margin="254.177,72,0,0" TextWrapping="Wrap" Text="nom client, crédit" VerticalAlignment="Top" Height="63" Width="144" Grid.Column="1"/>
+        <Label x:Name="lbl_crédit" Content="rentrer un crédit à ajouter ou bien à supprimer :" HorizontalAlignment="Left" Margin="175.177,195,0,0" VerticalAlignment="Top" Width="268" Grid.Column="1"/>
+        <TextBox x:Name="txt_boxcrédit" HorizontalAlignment="Left" Height="23" Margin="443.177,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <Button x:Name="btn_ajouter" Content="ajouter" HorizontalAlignment="Left" Margin="368.177,231,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+        <Button x:Name="btn_supprimer" Content="supprimer" HorizontalAlignment="Left" Margin="488.177,231,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+    </Grid>
+</Window>
