@@ -16,6 +16,8 @@ namespace PPE3_SLAM_HUGO.viewModel
         private DAOclients vmDaoClients;
         private DAOtransactions vmDaoTransaction;
 
+        private Transactions laTransaction = new Transactions();
+
         private Clients selectedClient = new Clients();
         private Transactions selectedTransaction = new Transactions();
 
@@ -25,11 +27,13 @@ namespace PPE3_SLAM_HUGO.viewModel
         public ObservableCollection<Clients> ListClient { get => listClient; set => listClient = value; }
         public ObservableCollection<Transactions> ListTransaction { get => listTransaction; set => listTransaction = value; }
 
-        public viewModelTransaction(DAOclients thedaoClient)
+        public viewModelTransaction(DAOclients thedaoClient,DAOtransactions thedaoTransaction)
         {
             vmDaoClients = thedaoClient;
+            vmDaoTransaction = thedaoTransaction;
 
             listClient = new ObservableCollection<Clients>(thedaoClient.SelectAll()); 
+            listTransaction = new ObservableCollection<Transactions>(thedaoTransaction.SelectAll());
         }
         public string Nom
         {
@@ -74,9 +78,23 @@ namespace PPE3_SLAM_HUGO.viewModel
                 }
             }
         }
-        //public void LalistTransaction()
-        //{
-        //    ListTransaction = new ObservableCollection<Transactions>(vmDaoTransaction.SelectById(selectedClient.Id));
-        //}
+        public void LalistTransaction()
+        {
+            ListTransaction = new ObservableCollection<Transactions>(vmDaoTransaction.SelectById(selectedClient.Id));
+        }
+        public Transactions Transaction
+        {
+            get => laTransaction;
+            set
+            {
+                if (laTransaction != value)
+                {
+                    laTransaction = value;
+                    OnPropertyChanged("idTransaction");
+                    OnPropertyChanged("idlient");
+                    OnPropertyChanged("MontantTransaction");
+                }
+            }
+        }
     }
 }

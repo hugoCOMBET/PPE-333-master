@@ -22,6 +22,13 @@ namespace Model.Business
             _montantTransaction = UnMontantTransaction;
             
         }
+        public Transactions(Clients UnClient, double UnMontantTransaction)
+        {
+            _idTransaction = 0;
+            _idClient = UnClient;
+            _montantTransaction = UnMontantTransaction;
+
+        }
         public Transactions()
         {
             _idTransaction = 0;

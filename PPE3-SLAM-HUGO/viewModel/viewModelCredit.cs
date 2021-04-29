@@ -18,9 +18,11 @@ namespace PPE3_SLAM_HUGO.viewModel
         private Clients selectedClient = new Clients();
 
         private ObservableCollection<Clients> listClient;
+        private ObservableCollection<Transactions> listTransactions;
 
         private double creditautiliser;
 
+        public ObservableCollection<Transactions> ListTransactions { get => listTransactions; set => listTransactions = value; }
         public ObservableCollection<Clients> ListClient { get => listClient; set => listClient = value; }
 
         private ICommand retirerCommand;
@@ -118,7 +120,9 @@ namespace PPE3_SLAM_HUGO.viewModel
         private void AjouterCommand()
         {
             selectedClient.Credit = selectedClient.Credit + creditautiliser;
+            vmDaoClients.Update(selectedClient);
             MessageBox.Show("Crédit ajoutés");
+            new Transactions(1,selectedClient,creditautiliser);
         }
         public ICommand AjouterCredit
         {
@@ -136,8 +140,9 @@ namespace PPE3_SLAM_HUGO.viewModel
             selectedClient.Credit = selectedClient.Credit - creditautiliser;
             vmDaoClients.Update(selectedClient);
             MessageBox.Show("Crédit retirés");
+            //Transactions hugo = new Transactions(selectedClient.Id, creditautiliser);
         }
-        public ICommand RetirerClient
+        public ICommand RetirerCredit
         {
             get
             {

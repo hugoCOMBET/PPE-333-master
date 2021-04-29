@@ -23,7 +23,7 @@
             <TextBox x:Name="txtbox_Client" Text="{Binding Nom}" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="9.722,12,10.278,8" Height="18"/>
             <Label Content="Liste des transactions :" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10,0,212" Background="White" FontSize="14" Height="28" Width="148" Grid.ColumnSpan="2"/>
             <Image x:Name="imageFromage" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="47,20,78.278,18" Height="0" Width="0" Grid.Column="1"/>
-            <ListBox x:Name="lst_transactions" Grid.Column="2"  ItemsSource="{Binding LaListTransaction}"   HorizontalAlignment="Left" Height="229" Margin="9.722,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="297"/>
+            <ListBox x:Name="lst_transactions" Grid.Column="2"  ItemsSource="{Binding ListTransaction}"   HorizontalAlignment="Left" Height="229" Margin="9.722,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="297"/>
         </Grid>
         <Button x:Name="btn_gérerClient" Content="Gérer un client" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Click="btn_gérerClient_Click" Background="#FFF1E1E1"/>
         <Button x:Name="btn_GérerlesCrédits" Content="Gérer credit" HorizontalAlignment="Left" Margin="140,0,0,0" VerticalAlignment="Top" Width="140" Click="btn_GérerlesCrédits_Click" Background="#FFF1E1E1"/>
