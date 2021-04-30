@@ -33,7 +33,7 @@ namespace PPE3_SLAM_HUGO.viewModel
             vmDaoTransaction = thedaoTransaction;
 
             listClient = new ObservableCollection<Clients>(thedaoClient.SelectAll()); 
-            listTransaction = new ObservableCollection<Transactions>(thedaoTransaction.SelectAll());
+            listTransaction = new ObservableCollection<Transactions>();
         }
         public string Nom
         {
@@ -60,7 +60,11 @@ namespace PPE3_SLAM_HUGO.viewModel
         }
         public Clients Selectedclient
         {
-            get => selectedClient;
+            get
+            {
+                this.UpdatelistTransaction();
+                return selectedClient ;
+            }
             set
             {
                 if (selectedClient != value)
@@ -75,12 +79,20 @@ namespace PPE3_SLAM_HUGO.viewModel
                     OnPropertyChanged("Adresse");
                     OnPropertyChanged("Adresse");
                     OnPropertyChanged("Credit");
+
+                    //this.UpdatelistTransaction();
                 }
             }
         }
-        public void LalistTransaction()
+        public void UpdatelistTransaction()
         {
-            ListTransaction = new ObservableCollection<Transactions>(vmDaoTransaction.SelectById(selectedClient.Id));
+            ListTransaction.Clear();
+            List<Transactions>listTransactionClient = new List<Transactions>();
+            listTransactionClient = vmDaoTransaction.SelectByClient(selectedClient);
+            foreach (Transactions t in listTransactionClient)
+            {
+                listTransaction.Add(t);
+            }
         }
         public Transactions Transaction
         {

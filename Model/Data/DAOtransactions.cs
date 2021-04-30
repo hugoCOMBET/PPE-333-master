@@ -46,10 +46,16 @@ namespace Model.Data
                 monClient,
                 (double)r["MontantTransaction"]); 
         }
-        //public List<Transactions> SelectByClient(int id)
-        //{
-        //    DataTable 
-        //    return listTransactions
-        //}
+        public List<Transactions> SelectByClient(Clients monClient)
+        {
+            List<Transactions> listTransaction = new List<Transactions>();
+            DataTable mytable = this._dbal.SelectByField("Transactions","idClient = " + monClient.Id.ToString());
+            foreach (DataRow r in mytable.Rows)
+            {
+                Transactions myTransaction = this.SelectById((int)r["idTransaction"]);
+                listTransaction.Add(myTransaction);
+            }
+            return listTransaction;
+        }
     }
 }
