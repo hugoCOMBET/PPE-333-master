@@ -102,7 +102,7 @@ namespace PPE3_SLAM_HUGO.viewModel
                 if (laTransaction != value)
                 {
                     laTransaction = value;
-                    OnPropertyChanged("idTransaction");
+                    OnPropertyChanged("id");
                     OnPropertyChanged("idlient");
                     OnPropertyChanged("MontantTransaction");
                 }

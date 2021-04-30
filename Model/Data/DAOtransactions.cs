@@ -52,7 +52,7 @@ namespace Model.Data
             DataTable mytable = this._dbal.SelectByField("Transactions","idClient = " + monClient.Id.ToString());
             foreach (DataRow r in mytable.Rows)
             {
-                Transactions myTransaction = this.SelectById((int)r["idTransaction"]);
+                Transactions myTransaction = this.SelectById((int)r["id"]);
                 listTransaction.Add(myTransaction);
             }
             return listTransaction;

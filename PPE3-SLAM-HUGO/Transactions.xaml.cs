@@ -30,7 +30,7 @@ namespace PPE3_SLAM_HUGO
             //laTransaction = mytransaction;
             //lesClient = myclient;
             InitializeComponent();
-            Transaction.DataContext = new viewModel.viewModeleClient(mydaoClient);
+            Transaction.DataContext = new viewModel.viewModelTransaction(mydaoClient,mydaoTransaction);
         }
 
         private void btn_GérerlesCrédits_Click(object sender, RoutedEventArgs e)

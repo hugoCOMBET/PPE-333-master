@@ -63,5 +63,13 @@ namespace Model.Business
             _montantTransaction = unMontantTransaction;
         }
         #endregion
+
+        public override string ToString()
+        {
+            return 
+                "Identifiant : " + this.getIdTransactions() + 
+                " identifiant du client : " + this.getIdClient() +
+                " montant de la transactions : " + this.getMontantTransaction();
+        }
     }
 }
